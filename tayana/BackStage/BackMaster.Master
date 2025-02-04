@@ -1,0 +1,259 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="BackMaster.master.cs" Inherits="tayana.BackMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>管理後台</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Datta able is trending dashboard template made using Bootstrap 5 design framework. Datta able is available in Bootstrap, React, CodeIgniter, Angular,  and .net Technologies.">
+    <meta name="keywords" content="Bootstrap admin template, Dashboard UI Kit, Dashboard Template, Backend Panel, react dashboard, angular dashboard">
+    <meta name="author" content="Codedthemes">
+
+    <!-- [Favicon] icon -->
+    <link rel="icon" href="../BackMasterMaterial/assets/images/favicon.svg" type="image/x-icon">
+    <!-- [Font] Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- [Tabler Icons] https://tablericons.com -->
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/fonts/tabler-icons.min.css">
+    <!-- [Feather Icons] https://feathericons.com -->
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/fonts/feather.css">
+    <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/fonts/fontawesome.css">
+    <!-- [Material Icons] https://fonts.google.com/icons -->
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/fonts/material.css">
+    <!-- [Template CSS Files] -->
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/css/style.css" id="mainStyleLink">
+    <link rel="stylesheet" href="../BackMasterMaterial/assets/css/style-preset.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-14K1GBX9FG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-14K1GBX9FG');
+</script>
+    <!-- WiserNotify -->
+    <script>
+        !(function () {
+            if (window.t4hto4) console.log('WiserNotify pixel installed multiple time in this page');
+            else {
+                window.t4hto4 = !0;
+                var t = document,
+                    e = window,
+                    n = function () {
+                        var e = t.createElement('script');
+                        (e.type = 'text/javascript'),
+                            (e.async = !0),
+                            (e.src = 'https://pt.wisernotify.com/pixel.js?ti=1jclj6jkfc4hhry'),
+                            document.body.appendChild(e);
+                    };
+                'complete' === t.readyState ? n() : window.attachEvent ? e.attachEvent('onload', n) : e.addEventListener('load', n, !1);
+            }
+        })();
+</script>
+    <!-- Microsoft clarity -->
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] =
+                c[a] ||
+                function () {
+                    (c[a].q = c[a].q || []).push(arguments);
+                };
+            t = l.createElement(r);
+            t.async = 1;
+            t.src = 'https://www.clarity.ms/tag/' + i;
+            y = l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', 'gkn6wuhrtb');
+</script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <form id="form1" runat="server">
+        <!-- [ Pre-loader ] start -->
+        <div class="loader-bg">
+            <div class="loader-track">
+                <div class="loader-fill"></div>
+            </div>
+        </div>
+        <!-- [ Pre-loader ] End -->
+        <!-- [ Sidebar Menu ] start -->
+        <nav class="pc-sidebar">
+            <div class="navbar-wrapper">
+                <div class="navbar-content">
+                    <!--登入使用者資訊卡開始-->
+                    <div class="dropdown-header d-flex align-items-center justify-content-between ">
+                        <div class="d-flex my-2 ps-4">
+                            <div class="flex-shrink-0">
+                                <asp:Image ID="ImageUserProfile" AlternateText="user-image" CssClass="user-avtar user-avtar2" ImageUrl="../BackMasterMaterial/assets/images/user/avatar-2.jpg" runat="server" />
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="text-white mb-1">
+                                    <asp:Literal ID="LiteralUserAccount" runat="server"></asp:Literal>
+                                    <asp:Literal ID="Literal1" runat="server" Text="  /  "></asp:Literal>
+                                    <asp:Literal ID="LiteralUserName" runat="server"></asp:Literal></h6>
+                                <span class="text-white text-opacity-75">
+                                    <asp:Literal ID="LiteralUserEmail" runat="server"></asp:Literal>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--登入使用者資訊卡結束-->
+                    <ul class="pc-navbar">
+                        <li class="pc-item pc-caption">
+                            <label>Home</label>
+                        </li>
+                        <li class="pc-item">
+                            <a href="SignOut.ashx" class="pc-link">
+                                <span class="pc-micon"><i data-feather="home"></i></span>
+                                <span class="pc-mtext">登出</span>
+                            </a>
+                        </li>
+                        <asp:Panel ID="PanelUser" runat="server">
+                            <li class="pc-item pc-caption">
+                                <label>使用者管理</label>
+                                <i data-feather="feather"></i>
+                            </li>
+                            <li class="pc-item">
+                                <a href="ManageAccount.aspx" class="pc-link">
+                                    <span class="pc-micon"><i data-feather="user"></i></span>
+                                    <span class="pc-mtext">Account</span>
+                                </a>
+                            </li>
+                        </asp:Panel>
+                        <li class="pc-item pc-caption">
+                            <label>頁面管理</label>
+                            <i data-feather="feather"></i>
+                        </li>
+                        <li class="pc-item">
+                            <a href="ManageYacht.aspx" class="pc-link">
+                                <span class="pc-micon"><i data-feather="anchor"></i></span>
+                                <span class="pc-mtext">Yacht</span>
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="ManageNews.aspx" class="pc-link">
+                                <span class="pc-micon"><i data-feather="globe"></i></span>
+                                <span class="pc-mtext">News</span>
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="ManageCompany.aspx" class="pc-link">
+                                <span class="pc-micon"><i data-feather="file-text"></i></span>
+                                <span class="pc-mtext">Company</span>
+                            </a>
+                        </li>
+                        <li class="pc-item">
+                            <a href="ManageDealers.aspx" class="pc-link">
+                                <span class="pc-micon"><i data-feather="users"></i></span>
+                                <span class="pc-mtext">Dealers</span>
+                            </a>
+                        </li>
+                        <asp:PlaceHolder ID="PlaceHolderAdminSideBar" runat="server" Visible="False">
+                            <li class="pc-item pc-caption">
+                                <label>管理員才可見</label>
+                            </li>
+                            <li class="pc-item">
+                                <a href="#" class="pc-link">
+                                    <span class="pc-micon"><i data-feather="twitter"></i></span>
+                                    <span class="pc-mtext">沒設定的按鈕</span>
+                                </a>
+                            </li>
+
+                        </asp:PlaceHolder>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- [ Sidebar Menu ] end -->
+        <!-- [ Header Topbar ] start -->
+        <header class="pc-header">
+            <div class="header-wrapper">
+                <!-- [Mobile Media Block] start -->
+                <div class="me-auto pc-mob-drp">
+                    <ul class="list-unstyled">
+                        <!-- ======= Menu collapse Icon ===== -->
+                        <li class="pc-h-item pc-sidebar-collapse">
+                            <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
+                                <i data-feather="menu"></i>
+                            </a>
+                        </li>
+                        <li class="pc-h-item pc-sidebar-popup">
+                            <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
+                                <i data-feather="menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <!-- [ Header ] end -->
+
+        <!-- [ Main Content ] start -->
+        <div class="pc-container">
+            <div class="pc-content">
+                <!-- [ Main Content ] start -->
+                <div class="row">
+                    <!-- [ Typography ] start -->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolderPanel" runat="server"></asp:ContentPlaceHolder>
+
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderMainTitle" runat="server"></asp:ContentPlaceHolder>
+                            </div>
+                            <div class="card-body pc-component">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderMainContent" runat="server"></asp:ContentPlaceHolder>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- [ Typography ] end -->
+                </div>
+                <!-- [ Main Content ] end -->
+            </div>
+        </div>
+        <!-- [ Main Content ] end -->
+        <footer class="pc-footer">
+            <div class="footer-wrapper container-fluid">
+                <div class="row">
+                    <div class="col my-1">
+                    </div>
+                    <div class="col-auto my-1">
+                        <ul class="list-inline footer-link mb-0">
+                            <li class="list-inline-item"><a href="../ForeStage/Index.aspx">Home</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Required Js -->
+        <script src="../BackMasterMaterial/assets/js/plugins/popper.min.js"></script>
+        <script src="../BackMasterMaterial/assets/js/plugins/simplebar.min.js"></script>
+        <script src="../BackMasterMaterial/assets/js/plugins/bootstrap.min.js"></script>
+        <script src="../BackMasterMaterial/assets/js/fonts/custom-font.js"></script>
+        <script src="../BackMasterMaterial/assets/js/pcoded.js"></script>
+        <script src="../BackMasterMaterial/assets/js/plugins/feather.min.js"></script>
+        <script>layout_change('light');</script>
+        <script>change_box_container('false');</script>
+        <script>layout_caption_change('true');</script>
+        <script>layout_rtl_change('false');</script>
+        <script>preset_change("preset-1");</script>
+        <script>layout_theme_sidebar_change('false');</script>
+
+    </form>
+</body>
+</html>

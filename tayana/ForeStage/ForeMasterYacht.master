@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/ForeStage/ForeMaterContent.master" AutoEventWireup="true" CodeBehind="ForeMasterYacht.master.cs" Inherits="tayana.ForeStage.ForeMasterYacht" %>
+
+<asp:Content ID="Content6" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" type="text/css" href="../ForeMasterMaterial/css/jquery.ad-gallery.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../ForeMasterMaterial/Scripts/jquery.ad-gallery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var galleries = $('.ad-gallery').adGallery();
+            galleries[0].settings.effect = 'slide-hori';
+            $(".ad-thumb-list").css("width", "100%");
+            //if ($('.banner input[type=hidden]').val() == "0") {
+            //    $(".bannermasks").hide();
+            //    $(".banner").hide();
+            //    $("#crumb1").css("top", "125px");
+            //}
+        });
+    </script>
+
+</asp:Content>
+
+<asp:Content ID="Content7" ContentPlaceHolderID="ContentPlaceHoldermasks" runat="server">
+    <!--遮罩-->
+    <div class="bannermasks">
+        <img src="../ForeMasterMaterial/images/banner01_masks.png" alt="&quot;&quot;" />
+    </div>
+    <!--遮罩結束-->
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderChangePhoto" runat="server">
+    <div class="banner">
+        <input type="hidden" name="HiddenField1" id="Gallery1_HiddenField1" value="1" />
+        <div id="gallery" class="ad-gallery">
+            <div class="ad-image-wrapper">
+            </div>
+            <div class="ad-controls" style="display: none">
+            </div>
+            <div class="ad-nav">
+                <div class="ad-thumbs">
+                    <ul class="ad-thumb-list">
+                        <asp:Repeater ID="RepeaterGallery" runat="server">
+                            <ItemTemplate>
+                                <li>
+                                    <a href="<%#Eval("ImagePath").ToString() %>">
+                                        <img src="<%#Eval("ImagePath").ToString() %>" class="image0" height="59px">
+                                    </a>
+                                </li>
+                            </ItemTemplate>
+
+                        </asp:Repeater>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftBar" runat="server">
+    <p><span>NEWS</span></p>
+    <ul>
+        <asp:Repeater ID="RepeaterLeftBar" runat="server">
+            <ItemTemplate>
+                <li><a href="Yacht.aspx?YachtId=<%#Eval("Id").ToString() %>"><%#Eval("YachtName").ToString() %></a></li>
+            </ItemTemplate>
+        </asp:Repeater>
+    </ul>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderSystemNamePath" runat="server">
+    <a href="#">Home</a>
+    >> <a href="#">Yachts </a>
+    >> <a href="#">
+        <span class="on1">
+            <asp:Literal ID="LiteralYachtName1" runat="server"></asp:Literal>
+        </span>
+    </a>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolderSystemName" runat="server">
+    <asp:Literal ID="LiteralYachtName2" runat="server"></asp:Literal>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolderSystemContent" runat="server">
+    <!--次選單-->
+    <div class="menu_y">
+        <asp:Literal ID="LiteralSecondMenu" runat="server"></asp:Literal>
+    </div>
+    <!--次選單-->
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderContent" runat="server"></asp:ContentPlaceHolder>
+
+</asp:Content>

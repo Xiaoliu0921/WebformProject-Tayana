@@ -1,0 +1,69 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/ForeStage/ForeMaster.Master" AutoEventWireup="true" CodeBehind="ForeMaterContent.master.cs" Inherits="tayana.ForeMaterContent" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHoldermasks" runat="server">
+    <asp:ContentPlaceHolder ID="ContentPlaceHoldermasks" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderChangePhoto" runat="server">
+    <div class="banner">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderChangePhoto" runat="server"></asp:ContentPlaceHolder>
+
+    </div>
+
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolderContent" runat="server">
+
+    <div class="conbg">
+        <!--------------------------------左邊選單開始---------------------------------------------------->
+        <div class="left">
+            <div class="left1">
+                <%--
+                        <p><span>NEWS</span></p>
+                        <ul>
+                            <li><a href="#">News & Events</a></li>
+                        </ul>
+                --%>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderLeftBar" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <!--------------------------------左邊選單結束---------------------------------------------------->
+
+        <!--------------------------------右邊選單開始---------------------------------------------------->
+        <div id="crumb">
+            <%--<a href="#">Home</a>
+            >> <a href="#">News </a>
+            >> <a href="#"><span class="on1">News & Events</span></a>--%>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderSystemNamePath" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <div class="right">
+            <div class="right1">
+                <div class="title">
+                    <span>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolderSystemName" runat="server"></asp:ContentPlaceHolder>
+                    </span>
+
+                </div>
+
+                <!--------------------------------內容開始---------------------------------------------------->
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderSystemContent" runat="server"></asp:ContentPlaceHolder>
+
+                <!--------------------------------內容結束------------------------------------------------------>
+            </div>
+        </div>
+
+        <!--------------------------------右邊選單結束---------------------------------------------------->
+    </div>
+
+
+</asp:Content>
+
+
+
+
